@@ -1,0 +1,46 @@
+{
+  "phases": [
+    {
+      "phase": 1,
+      "title": "Dynamic systems",
+      "module_start": 1,
+      "module_end": 4,
+      "learning_goal": "Build visible, manipulable intuition for dynamic systems."
+    },
+    {
+      "phase": 2,
+      "title": "Feedback fundamentals",
+      "module_start": 5,
+      "module_end": 8,
+      "learning_goal": "Build visible, manipulable intuition for feedback fundamentals."
+    },
+    {
+      "phase": 3,
+      "title": "Digital and constrained control",
+      "module_start": 9,
+      "module_end": 12,
+      "learning_goal": "Build visible, manipulable intuition for digital and constrained control."
+    },
+    {
+      "phase": 4,
+      "title": "State-space control",
+      "module_start": 13,
+      "module_end": 16,
+      "learning_goal": "Build visible, manipulable intuition for state-space control."
+    },
+    {
+      "phase": 5,
+      "title": "Optimal and robust control",
+      "module_start": 17,
+      "module_end": 20,
+      "learning_goal": "Build visible, manipulable intuition for optimal and robust control."
+    },
+    {
+      "phase": 6,
+      "title": "Guidance and HIL",
+      "module_start": 21,
+      "module_end": 24,
+      "learning_goal": "Build visible, manipulable intuition for guidance and hil."
+    }
+  ]
+}

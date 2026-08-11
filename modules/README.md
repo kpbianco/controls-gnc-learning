@@ -1,0 +1,32 @@
+# Curriculum modules
+
+The canonical order is foundational and cumulative. Each `P##` is one governed,
+reviewable implementation batch. `implemented` means the complete learner slice exists;
+`scaffolded` means the batch is intentionally non-runnable.
+
+| Batch | Phase | Module | Guiding question | Status |
+| --- | --- | --- | --- | --- |
+| P01 | 1: Dynamic systems | [Watch a Mass-Spring-Damper Respond](../modules/01-watch-a-mass-spring-damper-respond/README.md) | How do mass, stiffness, and damping determine visible motion? | implemented |
+| P02 | 1: Dynamic systems | [Build Intuition for Integrators and First-Order Systems](../modules/02-build-intuition-for-integrators-and-first-order-systems/README.md) | What inputs, observable effects, and failure modes matter when you build Intuition for Integrators and First-Order Systems? | scaffolded |
+| P03 | 1: Dynamic systems | [Relate Poles to Visible Motion](../modules/03-relate-poles-to-visible-motion/README.md) | What inputs, observable effects, and failure modes matter when you relate Poles to Visible Motion? | scaffolded |
+| P04 | 1: Dynamic systems | [Compare Linear and Nonlinear Pendulum Models](../modules/04-compare-linear-and-nonlinear-pendulum-models/README.md) | What inputs, observable effects, and failure modes matter when you compare Linear and Nonlinear Pendulum Models? | scaffolded |
+| P05 | 2: Feedback fundamentals | [Close a Loop with Proportional Control](../modules/05-close-a-loop-with-proportional-control/README.md) | What inputs, observable effects, and failure modes matter when you close a Loop with Proportional Control? | scaffolded |
+| P06 | 2: Feedback fundamentals | [Tune a PID by Observing Each Term](../modules/06-tune-a-pid-by-observing-each-term/README.md) | What inputs, observable effects, and failure modes matter when you tune a PID by Observing Each Term? | scaffolded |
+| P07 | 2: Feedback fundamentals | [See Stability Margin in Time and Frequency](../modules/07-see-stability-margin-in-time-and-frequency/README.md) | What inputs, observable effects, and failure modes matter when you see Stability Margin in Time and Frequency? | scaffolded |
+| P08 | 2: Feedback fundamentals | [Reject a Disturbance with Feedback](../modules/08-reject-a-disturbance-with-feedback/README.md) | What inputs, observable effects, and failure modes matter when you reject a Disturbance with Feedback? | scaffolded |
+| P09 | 3: Digital and constrained control | [Discretize a Continuous Controller](../modules/09-discretize-a-continuous-controller/README.md) | What inputs, observable effects, and failure modes matter when you discretize a Continuous Controller? | scaffolded |
+| P10 | 3: Digital and constrained control | [Expose Delay and Sampling Limits](../modules/10-expose-delay-and-sampling-limits/README.md) | What inputs, observable effects, and failure modes matter when you expose Delay and Sampling Limits? | scaffolded |
+| P11 | 3: Digital and constrained control | [Drive an Actuator into Saturation](../modules/11-drive-an-actuator-into-saturation/README.md) | What inputs, observable effects, and failure modes matter when you drive an Actuator into Saturation? | scaffolded |
+| P12 | 3: Digital and constrained control | [Recover from Integrator Windup](../modules/12-recover-from-integrator-windup/README.md) | What inputs, observable effects, and failure modes matter when you recover from Integrator Windup? | scaffolded |
+| P13 | 4: State-space control | [Test Controllability](../modules/13-test-controllability/README.md) | What inputs, observable effects, and failure modes matter when you test Controllability? | scaffolded |
+| P14 | 4: State-space control | [Test Observability](../modules/14-test-observability/README.md) | What inputs, observable effects, and failure modes matter when you test Observability? | scaffolded |
+| P15 | 4: State-space control | [Build a State Observer](../modules/15-build-a-state-observer/README.md) | What inputs, observable effects, and failure modes matter when you build a State Observer? | scaffolded |
+| P16 | 4: State-space control | [Fuse Noisy Sensors with a Kalman Filter](../modules/16-fuse-noisy-sensors-with-a-kalman-filter/README.md) | What inputs, observable effects, and failure modes matter when you fuse Noisy Sensors with a Kalman Filter? | scaffolded |
+| P17 | 5: Optimal and robust control | [Balance State Error and Control Effort with LQR](../modules/17-balance-state-error-and-control-effort-with-lqr/README.md) | What inputs, observable effects, and failure modes matter when you balance State Error and Control Effort with LQR? | scaffolded |
+| P18 | 5: Optimal and robust control | [Use Feedforward and Feedback Together](../modules/18-use-feedforward-and-feedback-together/README.md) | What inputs, observable effects, and failure modes matter when you use Feedforward and Feedback Together? | scaffolded |
+| P19 | 5: Optimal and robust control | [Measure Sensitivity to Model Error](../modules/19-measure-sensitivity-to-model-error/README.md) | What inputs, observable effects, and failure modes matter when you measure Sensitivity to Model Error? | scaffolded |
+| P20 | 5: Optimal and robust control | [Compare Nominal and Robust Designs](../modules/20-compare-nominal-and-robust-designs/README.md) | What inputs, observable effects, and failure modes matter when you compare Nominal and Robust Designs? | scaffolded |
+| P21 | 6: Guidance and HIL | [Generate a Feasible Trajectory](../modules/21-generate-a-feasible-trajectory/README.md) | What inputs, observable effects, and failure modes matter when you generate a Feasible Trajectory? | scaffolded |
+| P22 | 6: Guidance and HIL | [Implement Proportional Navigation](../modules/22-implement-proportional-navigation/README.md) | What inputs, observable effects, and failure modes matter when you implement Proportional Navigation? | scaffolded |
+| P23 | 6: Guidance and HIL | [Model Sensor and Actuator Dynamics](../modules/23-model-sensor-and-actuator-dynamics/README.md) | What inputs, observable effects, and failure modes matter when you model Sensor and Actuator Dynamics? | scaffolded |
+| P24 | 6: Guidance and HIL | [Close the Loop Through a Hardware-in-the-Loop Plant](../modules/24-close-the-loop-through-a-hardware-in-the-loop-plant/README.md) | What inputs, observable effects, and failure modes matter when you close the Loop Through a Hardware-in-the-Loop Plant? | scaffolded |

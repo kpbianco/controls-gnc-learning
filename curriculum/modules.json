@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "product": "controls-gnc-learning",
+  "title": "Controls, State Estimation, Guidance, and Navigation",
+  "purpose": "Learn how physical systems evolve, how feedback changes them, and how controllers behave when sensors, actuators, and timing are imperfect.",
+  "module_count": 24,
+  "progression_rule": "Complete modules in order until the first six are complete; later modules may be selected when their prerequisites are met.",
+  "interaction_contract": {
+    "environment": "MATLAB",
+    "notebook_format": "MATLAB scripts with %% Live Editor cells",
+    "lever_ui": "uifigure controls",
+    "required_sweeps": 2,
+    "required_broken_cases": 1,
+    "randomness": "seeded",
+    "base_matlab_preferred": true,
+    "learning_cycle": [
+      "read",
+      "visualize-baseline",
+      "move-one-lever",
+      "visualize-delta",
+      "read-and-explain"
+    ]
+  },
+  "modules": [
+    {
+      "number": 1,
+      "id": "P01",
+      "title": "Watch a Mass-Spring-Damper Respond",
+      "guiding_question": "How do mass, stiffness, and damping determine visible motion?",
+      "phase": 1,
+      "phase_title": "Dynamic systems",
+      "slug": "watch-a-mass-spring-damper-respond",
+      "folder": "modules/01-watch-a-mass-spring-damper-respond",
+      "status": "implemented",
+      "implementation_batch": "P01",
+      "prerequisites": [],
+      "evidence_level": "simulated"
+    },
+    {
+      "number": 2,
+      "id": "P02",
+      "title": "Build Intuition for Integrators and First-Order Systems",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you build Intuition for Integrators and First-Order Systems?",
+      "phase": 1,
+      "phase_title": "Dynamic systems",
+      "slug": "build-intuition-for-integrators-and-first-order-systems",
+      "folder": "modules/02-build-intuition-for-integrators-and-first-order-systems",
+      "status": "scaffolded",
+      "implementation_batch": "P02",
+      "prerequisites": [
+        "P01"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 3,
+      "id": "P03",
+      "title": "Relate Poles to Visible Motion",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you relate Poles to Visible Motion?",
+      "phase": 1,
+      "phase_title": "Dynamic systems",
+      "slug": "relate-poles-to-visible-motion",
+      "folder": "modules/03-relate-poles-to-visible-motion",
+      "status": "scaffolded",
+      "implementation_batch": "P03",
+      "prerequisites": [
+        "P02"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 4,
+      "id": "P04",
+      "title": "Compare Linear and Nonlinear Pendulum Models",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you compare Linear and Nonlinear Pendulum Models?",
+      "phase": 1,
+      "phase_title": "Dynamic systems",
+      "slug": "compare-linear-and-nonlinear-pendulum-models",
+      "folder": "modules/04-compare-linear-and-nonlinear-pendulum-models",
+      "status": "scaffolded",
+      "implementation_batch": "P04",
+      "prerequisites": [
+        "P03"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 5,
+      "id": "P05",
+      "title": "Close a Loop with Proportional Control",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you close a Loop with Proportional Control?",
+      "phase": 2,
+      "phase_title": "Feedback fundamentals",
+      "slug": "close-a-loop-with-proportional-control",
+      "folder": "modules/05-close-a-loop-with-proportional-control",
+      "status": "scaffolded",
+      "implementation_batch": "P05",
+      "prerequisites": [
+        "P04"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 6,
+      "id": "P06",
+      "title": "Tune a PID by Observing Each Term",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you tune a PID by Observing Each Term?",
+      "phase": 2,
+      "phase_title": "Feedback fundamentals",
+      "slug": "tune-a-pid-by-observing-each-term",
+      "folder": "modules/06-tune-a-pid-by-observing-each-term",
+      "status": "scaffolded",
+      "implementation_batch": "P06",
+      "prerequisites": [
+        "P05"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 7,
+      "id": "P07",
+      "title": "See Stability Margin in Time and Frequency",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you see Stability Margin in Time and Frequency?",
+      "phase": 2,
+      "phase_title": "Feedback fundamentals",
+      "slug": "see-stability-margin-in-time-and-frequency",
+      "folder": "modules/07-see-stability-margin-in-time-and-frequency",
+      "status": "scaffolded",
+      "implementation_batch": "P07",
+      "prerequisites": [
+        "P06"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 8,
+      "id": "P08",
+      "title": "Reject a Disturbance with Feedback",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you reject a Disturbance with Feedback?",
+      "phase": 2,
+      "phase_title": "Feedback fundamentals",
+      "slug": "reject-a-disturbance-with-feedback",
+      "folder": "modules/08-reject-a-disturbance-with-feedback",
+      "status": "scaffolded",
+      "implementation_batch": "P08",
+      "prerequisites": [
+        "P07"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 9,
+      "id": "P09",
+      "title": "Discretize a Continuous Controller",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you discretize a Continuous Controller?",
+      "phase": 3,
+      "phase_title": "Digital and constrained control",
+      "slug": "discretize-a-continuous-controller",
+      "folder": "modules/09-discretize-a-continuous-controller",
+      "status": "scaffolded",
+      "implementation_batch": "P09",
+      "prerequisites": [
+        "P08"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 10,
+      "id": "P10",
+      "title": "Expose Delay and Sampling Limits",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you expose Delay and Sampling Limits?",
+      "phase": 3,
+      "phase_title": "Digital and constrained control",
+      "slug": "expose-delay-and-sampling-limits",
+      "folder": "modules/10-expose-delay-and-sampling-limits",
+      "status": "scaffolded",
+      "implementation_batch": "P10",
+      "prerequisites": [
+        "P09"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 11,
+      "id": "P11",
+      "title": "Drive an Actuator into Saturation",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you drive an Actuator into Saturation?",
+      "phase": 3,
+      "phase_title": "Digital and constrained control",
+      "slug": "drive-an-actuator-into-saturation",
+      "folder": "modules/11-drive-an-actuator-into-saturation",
+      "status": "scaffolded",
+      "implementation_batch": "P11",
+      "prerequisites": [
+        "P10"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 12,
+      "id": "P12",
+      "title": "Recover from Integrator Windup",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you recover from Integrator Windup?",
+      "phase": 3,
+      "phase_title": "Digital and constrained control",
+      "slug": "recover-from-integrator-windup",
+      "folder": "modules/12-recover-from-integrator-windup",
+      "status": "scaffolded",
+      "implementation_batch": "P12",
+      "prerequisites": [
+        "P11"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 13,
+      "id": "P13",
+      "title": "Test Controllability",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you test Controllability?",
+      "phase": 4,
+      "phase_title": "State-space control",
+      "slug": "test-controllability",
+      "folder": "modules/13-test-controllability",
+      "status": "scaffolded",
+      "implementation_batch": "P13",
+      "prerequisites": [
+        "P12"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 14,
+      "id": "P14",
+      "title": "Test Observability",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you test Observability?",
+      "phase": 4,
+      "phase_title": "State-space control",
+      "slug": "test-observability",
+      "folder": "modules/14-test-observability",
+      "status": "scaffolded",
+      "implementation_batch": "P14",
+      "prerequisites": [
+        "P13"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 15,
+      "id": "P15",
+      "title": "Build a State Observer",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you build a State Observer?",
+      "phase": 4,
+      "phase_title": "State-space control",
+      "slug": "build-a-state-observer",
+      "folder": "modules/15-build-a-state-observer",
+      "status": "scaffolded",
+      "implementation_batch": "P15",
+      "prerequisites": [
+        "P14"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 16,
+      "id": "P16",
+      "title": "Fuse Noisy Sensors with a Kalman Filter",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you fuse Noisy Sensors with a Kalman Filter?",
+      "phase": 4,
+      "phase_title": "State-space control",
+      "slug": "fuse-noisy-sensors-with-a-kalman-filter",
+      "folder": "modules/16-fuse-noisy-sensors-with-a-kalman-filter",
+      "status": "scaffolded",
+      "implementation_batch": "P16",
+      "prerequisites": [
+        "P15"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 17,
+      "id": "P17",
+      "title": "Balance State Error and Control Effort with LQR",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you balance State Error and Control Effort with LQR?",
+      "phase": 5,
+      "phase_title": "Optimal and robust control",
+      "slug": "balance-state-error-and-control-effort-with-lqr",
+      "folder": "modules/17-balance-state-error-and-control-effort-with-lqr",
+      "status": "scaffolded",
+      "implementation_batch": "P17",
+      "prerequisites": [
+        "P16"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 18,
+      "id": "P18",
+      "title": "Use Feedforward and Feedback Together",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you use Feedforward and Feedback Together?",
+      "phase": 5,
+      "phase_title": "Optimal and robust control",
+      "slug": "use-feedforward-and-feedback-together",
+      "folder": "modules/18-use-feedforward-and-feedback-together",
+      "status": "scaffolded",
+      "implementation_batch": "P18",
+      "prerequisites": [
+        "P17"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 19,
+      "id": "P19",
+      "title": "Measure Sensitivity to Model Error",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you measure Sensitivity to Model Error?",
+      "phase": 5,
+      "phase_title": "Optimal and robust control",
+      "slug": "measure-sensitivity-to-model-error",
+      "folder": "modules/19-measure-sensitivity-to-model-error",
+      "status": "scaffolded",
+      "implementation_batch": "P19",
+      "prerequisites": [
+        "P18"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 20,
+      "id": "P20",
+      "title": "Compare Nominal and Robust Designs",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you compare Nominal and Robust Designs?",
+      "phase": 5,
+      "phase_title": "Optimal and robust control",
+      "slug": "compare-nominal-and-robust-designs",
+      "folder": "modules/20-compare-nominal-and-robust-designs",
+      "status": "scaffolded",
+      "implementation_batch": "P20",
+      "prerequisites": [
+        "P19"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 21,
+      "id": "P21",
+      "title": "Generate a Feasible Trajectory",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you generate a Feasible Trajectory?",
+      "phase": 6,
+      "phase_title": "Guidance and HIL",
+      "slug": "generate-a-feasible-trajectory",
+      "folder": "modules/21-generate-a-feasible-trajectory",
+      "status": "scaffolded",
+      "implementation_batch": "P21",
+      "prerequisites": [
+        "P20"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 22,
+      "id": "P22",
+      "title": "Implement Proportional Navigation",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you implement Proportional Navigation?",
+      "phase": 6,
+      "phase_title": "Guidance and HIL",
+      "slug": "implement-proportional-navigation",
+      "folder": "modules/22-implement-proportional-navigation",
+      "status": "scaffolded",
+      "implementation_batch": "P22",
+      "prerequisites": [
+        "P21"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 23,
+      "id": "P23",
+      "title": "Model Sensor and Actuator Dynamics",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you model Sensor and Actuator Dynamics?",
+      "phase": 6,
+      "phase_title": "Guidance and HIL",
+      "slug": "model-sensor-and-actuator-dynamics",
+      "folder": "modules/23-model-sensor-and-actuator-dynamics",
+      "status": "scaffolded",
+      "implementation_batch": "P23",
+      "prerequisites": [
+        "P22"
+      ],
+      "evidence_level": "none"
+    },
+    {
+      "number": 24,
+      "id": "P24",
+      "title": "Close the Loop Through a Hardware-in-the-Loop Plant",
+      "guiding_question": "What inputs, observable effects, and failure modes matter when you close the Loop Through a Hardware-in-the-Loop Plant?",
+      "phase": 6,
+      "phase_title": "Guidance and HIL",
+      "slug": "close-the-loop-through-a-hardware-in-the-loop-plant",
+      "folder": "modules/24-close-the-loop-through-a-hardware-in-the-loop-plant",
+      "status": "scaffolded",
+      "implementation_batch": "P24",
+      "prerequisites": [
+        "P23"
+      ],
+      "evidence_level": "none"
+    }
+  ]
+}
