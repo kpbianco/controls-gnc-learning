@@ -36,20 +36,36 @@ class LearnCliTests(unittest.TestCase):
             )
 
     def test_status_and_list(self):
+        manifest = json.loads((ROOT / "curriculum/modules.json").read_text(encoding="utf-8"))
+        implemented = sum(module["status"] == "implemented" for module in manifest["modules"])
         status = self.run_cli("status")
         self.assertEqual(status.returncode, 0, status.stderr)
-        self.assertIn("24 total, 1 implemented", status.stdout)
+        self.assertIn(f"24 total, {implemented} implemented", status.stdout)
         listing = self.run_cli("list")
         self.assertEqual(listing.returncode, 0, listing.stderr)
         self.assertEqual(len([line for line in listing.stdout.splitlines() if line.strip()]), 24)
 
-    def test_reference_starts_and_scaffold_refuses(self):
-        reference = self.run_cli("start", "P01")
-        self.assertEqual(reference.returncode, 0, reference.stderr)
-        self.assertIn("Guiding question:", reference.stdout)
-        scaffold = self.run_cli("start", "P02")
-        self.assertEqual(scaffold.returncode, 2)
-        self.assertIn("Activate its governed implementation batch", scaffold.stdout)
+    def test_implemented_modules_start_and_current_scaffold_refuses(self):
+        manifest = json.loads((ROOT / "curriculum/modules.json").read_text(encoding="utf-8"))
+        for module_id in ("P01", "P02"):
+            with self.subTest(module=module_id):
+                implemented = self.run_cli("start", module_id)
+                self.assertEqual(implemented.returncode, 0, implemented.stderr)
+                self.assertIn("Guiding question:", implemented.stdout)
+
+        scaffolded = next(
+            (module for module in manifest["modules"] if module["status"] == "scaffolded"),
+            None,
+        )
+        if scaffolded is not None:
+            scaffold = self.run_cli("start", scaffolded["id"])
+            self.assertEqual(scaffold.returncode, 2)
+            self.assertIn("Activate its governed implementation batch", scaffold.stdout)
+
+    def test_unknown_module_is_rejected(self):
+        unknown = self.run_cli("start", "P99")
+        self.assertNotEqual(unknown.returncode, 0)
+        self.assertIn("Unknown module: P99", unknown.stderr)
 
 
 if __name__ == "__main__":
