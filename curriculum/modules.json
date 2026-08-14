@@ -77,12 +77,12 @@
       "phase_title": "Dynamic systems",
       "slug": "compare-linear-and-nonlinear-pendulum-models",
       "folder": "modules/04-compare-linear-and-nonlinear-pendulum-models",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P04",
       "prerequisites": [
         "P03"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 5,
