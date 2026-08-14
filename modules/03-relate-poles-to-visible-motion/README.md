@@ -2,36 +2,39 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 1:** Dynamic systems  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
 What inputs, observable effects, and failure modes matter when you relate Poles to Visible Motion?
 
-## Physical mental model
+## Mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+A free second-order mode with poles `p = sigma +/- j*omega` obeys
 
-## Required learning flow
+```text
+x'' - 2*sigma*x' + (sigma^2 + omega^2)*x = 0.
+```
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+The pole real coordinate `sigma` has units `1/s` and sets whether the motion's
+exponential envelope shrinks or grows. The imaginary magnitude `omega` has units
+`rad/s` and sets the oscillation period `2*pi/omega`. Initial displacement and
+velocity decide the phase and amplitude that are visible inside that envelope.
 
-## Implementation contract
+## What to run
 
-The completed module owns these files:
+1. Open `lesson.m` for the question, P02 bridge, and one baseline prediction.
+2. Run `experiment.m` one `%%` section at a time: baseline motion, pole-plane
+   view, real-part sweep, imaginary-part sweep, then broken and recovered cases.
+3. Run `interactive.m`; move one coordinate, reset, then move the other.
+4. Run `run_checks.m`, answer `checks.md`, and give the teach-back.
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+The implementation uses transparent exact equations and base MATLAB operations. It
+does not require Control System Toolbox transfer functions or hidden solvers.
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+## Evidence boundary
+
+The model is deterministic simulation content. Repository tests statically validate
+the artifact and reference-arithmetic contracts. MATLAB runtime, rendered figures,
+UI callbacks, MATLAB numerical fidelity, educational efficacy, bench, hardware,
+HIL, field, and production behavior require separate retained evidence.

@@ -45,11 +45,14 @@ class LearnCliTests(unittest.TestCase):
         self.assertEqual(listing.returncode, 0, listing.stderr)
         self.assertEqual(len([line for line in listing.stdout.splitlines() if line.strip()]), 24)
 
-    def test_implemented_modules_start_and_current_scaffold_refuses(self):
+    def test_implemented_modules_start_and_first_scaffold_refuses(self):
         manifest = json.loads((ROOT / "curriculum/modules.json").read_text(encoding="utf-8"))
-        for module_id in ("P01", "P02"):
-            with self.subTest(module=module_id):
-                implemented = self.run_cli("start", module_id)
+        implemented_modules = [
+            module for module in manifest["modules"] if module["status"] == "implemented"
+        ]
+        for module in implemented_modules:
+            with self.subTest(module=module["id"]):
+                implemented = self.run_cli("start", module["id"])
                 self.assertEqual(implemented.returncode, 0, implemented.stderr)
                 self.assertIn("Guiding question:", implemented.stdout)
 

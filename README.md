@@ -21,6 +21,7 @@ From a shell:
 ./bin/learn start
 ./bin/learn start P01
 ./bin/learn start P02
+./bin/learn start P03
 ./bin/learn list
 ./bin/learn status
 ```
@@ -38,8 +39,8 @@ launch_lesson("P01")
 run_module_checks("P01")
 ```
 
-`P01` is the complete reference implementation and `P02` is the next implemented
-learning slice. Later modules remain intentionally scaffolded so each can be
+`P01` is the complete reference implementation; `P02` and `P03` are implemented
+learning slices. Later modules remain intentionally scaffolded so each can be
 implemented in a bounded, reviewable batch.
 
 ## Module layout

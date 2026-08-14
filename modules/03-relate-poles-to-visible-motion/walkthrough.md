@@ -1,13 +1,14 @@
-# P03 walkthrough: Relate Poles to Visible Motion
+# Walkthrough: Relate Poles to Visible Motion
 
-## Planned learner sequence
+Run one experiment section per step so every changed view has one cause.
 
 1. Read the guiding question: What inputs, observable effects, and failure modes matter when you relate Poles to Visible Motion?
-2. Visualize the deterministic baseline and name every axis and unit.
-3. Move one lever and observe one plot transition at a time.
-4. Return to baseline, move a second independent lever, and identify the tradeoff.
-5. Read the mechanism that explains both visual changes.
-6. Run a deliberately broken case and identify the violated assumption from its symptom.
-7. Run numerical checks and give a two-sentence teach-back.
-
-This sequence is a build contract, not evidence that P03 is implemented.
+2. Recall P02's first-order pole at `-1/tau`. Predict whether the P03 baseline will reverse direction and whether its envelope will grow or shrink.
+3. Run only the baseline motion section. Observe repeated zero crossings inside the shrinking displacement envelope.
+4. Run the pole-plane section. Connect horizontal coordinate `sigma = -0.5 1/s` to decay and vertical coordinates `+/-2 rad/s` to the `pi`-second period.
+5. Run sweep 1. Only `sigma` changes, so the envelope constants become 1, 2, and 5 seconds while cycle spacing stays fixed. Read the mechanism note before proceeding.
+6. Reset `sigma = -0.5 1/s`, then run sweep 2. Only `omega` changes, so periods become `2*pi`, `pi`, and `pi/2` seconds while the exponential ratio stays fixed.
+7. Open `interactive.m`. Move the real coordinate once, press **Reset baseline**, then move the imaginary coordinate once. State the changed observable and invariant after each move.
+8. Run the broken case. Identify the violated left-half-plane/dissipation assumption from the growing envelope and energy, then explain why restoring negative `sigma` recovers decay.
+9. Run `run_checks.m`, then answer `checks.md` one question at a time.
+10. Teach back in two sentences: map pole coordinates to mechanisms first, then name their visible consequences and the right-half-plane failure.
