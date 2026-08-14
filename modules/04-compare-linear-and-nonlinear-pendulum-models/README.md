@@ -1,37 +1,43 @@
 # P04 — Compare Linear and Nonlinear Pendulum Models
 
-**Track:** Controls, State Estimation, Guidance, and Navigation  
-**Phase 1:** Dynamic systems  
-**Status:** scaffolded
+**Track:** Controls, State Estimation, Guidance, and Navigation
+**Phase 1:** Dynamic systems
+**Status:** implemented
 
 ## Guiding question
 
 What inputs, observable effects, and failure modes matter when you compare Linear and Nonlinear Pendulum Models?
 
-## Physical mental model
+## Mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+A pendulum with angle `theta`, length `L`, gravitational acceleration `g`, and
+linearized damping ratio `zeta` obeys
 
-## Required learning flow
+```text
+nonlinear: theta'' + 2*zeta*sqrt(g/L)*theta' + (g/L)*sin(theta) = 0
+linear:    theta'' + 2*zeta*sqrt(g/L)*theta' + (g/L)*theta = 0.
+```
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+The linear model replaces `sin(theta)` with `theta`. That approximation is strong
+near zero because the two restoring terms nearly coincide. At large release angles,
+`sin(theta)` has smaller magnitude than `theta`, so the real pendulum restores more
+slowly and its motion falls behind the linear prediction.
 
-## Implementation contract
+## What to run
 
-The completed module owns these files:
+1. Open `lesson.m` for the P03 bridge and one baseline prediction.
+2. Run `experiment.m` one `%%` section at a time: baseline motion, restoring-law
+   view, release-angle sweep, length sweep, then broken and recovered cases.
+3. Run `interactive.m`; move release angle once, reset, then move length once.
+4. Run `run_checks.m`, answer `checks.md`, and give the teach-back.
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+The implementation uses visible fixed-step Runge-Kutta arithmetic and base MATLAB.
+It does not use an ODE solver, Simulink, or Control System Toolbox.
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+## Evidence boundary
+
+The model is deterministic simulation content. Repository tests statically validate
+artifacts, equations, reference arithmetic, malformed-input contracts, and resource
+bounds. MATLAB runtime, rendered figures, UI callbacks, MATLAB numerical fidelity,
+educational efficacy, bench, hardware, HIL, field, and production behavior require
+separate retained evidence.
