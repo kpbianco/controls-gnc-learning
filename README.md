@@ -20,6 +20,7 @@ From a shell:
 ```bash
 ./bin/learn start
 ./bin/learn start P01
+./bin/learn start P02
 ./bin/learn list
 ./bin/learn status
 ```
@@ -37,7 +38,9 @@ launch_lesson("P01")
 run_module_checks("P01")
 ```
 
-`P01` is a complete reference implementation. The remaining modules are intentionally scaffolded so each can be implemented in a bounded, reviewable batch.
+`P01` is the complete reference implementation and `P02` is the next implemented
+learning slice. Later modules remain intentionally scaffolded so each can be
+implemented in a bounded, reviewable batch.
 
 ## Module layout
 

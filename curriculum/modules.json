@@ -45,12 +45,12 @@
       "phase_title": "Dynamic systems",
       "slug": "build-intuition-for-integrators-and-first-order-systems",
       "folder": "modules/02-build-intuition-for-integrators-and-first-order-systems",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P02",
       "prerequisites": [
         "P01"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 3,

@@ -7,7 +7,7 @@ reviewable implementation batch. `implemented` means the complete learner slice 
 | Batch | Phase | Module | Guiding question | Status |
 | --- | --- | --- | --- | --- |
 | P01 | 1: Dynamic systems | [Watch a Mass-Spring-Damper Respond](../modules/01-watch-a-mass-spring-damper-respond/README.md) | How do mass, stiffness, and damping determine visible motion? | implemented |
-| P02 | 1: Dynamic systems | [Build Intuition for Integrators and First-Order Systems](../modules/02-build-intuition-for-integrators-and-first-order-systems/README.md) | What inputs, observable effects, and failure modes matter when you build Intuition for Integrators and First-Order Systems? | scaffolded |
+| P02 | 1: Dynamic systems | [Build Intuition for Integrators and First-Order Systems](../modules/02-build-intuition-for-integrators-and-first-order-systems/README.md) | What inputs, observable effects, and failure modes matter when you build Intuition for Integrators and First-Order Systems? | implemented |
 | P03 | 1: Dynamic systems | [Relate Poles to Visible Motion](../modules/03-relate-poles-to-visible-motion/README.md) | What inputs, observable effects, and failure modes matter when you relate Poles to Visible Motion? | scaffolded |
 | P04 | 1: Dynamic systems | [Compare Linear and Nonlinear Pendulum Models](../modules/04-compare-linear-and-nonlinear-pendulum-models/README.md) | What inputs, observable effects, and failure modes matter when you compare Linear and Nonlinear Pendulum Models? | scaffolded |
 | P05 | 2: Feedback fundamentals | [Close a Loop with Proportional Control](../modules/05-close-a-loop-with-proportional-control/README.md) | What inputs, observable effects, and failure modes matter when you close a Loop with Proportional Control? | scaffolded |

@@ -2,7 +2,7 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 1:** Dynamic systems  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
@@ -10,7 +10,17 @@ What inputs, observable effects, and failure modes matter when you build Intuiti
 
 ## Physical mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+An integrator is a perfect accumulator: a constant input keeps adding to its state, so its output ramps without a finite steady value. A first-order system also stores history, but its present output leaks toward the commanded equilibrium. Its time constant sets how quickly the remaining gap shrinks.
+
+The two governing equations stay visible throughout the lesson:
+
+```text
+dx_I/dt = u
+tau * dy/dt + y = K * u
+```
+
+Under a constant normalized command `A`, the transparent reference solutions are
+`x_I(t) = A*t` and `y(t) = K*A*(1 - exp(-t/tau))`.
 
 ## Required learning flow
 
@@ -35,3 +45,18 @@ The completed module owns these files:
 - `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
 
 Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+
+## Run the module
+
+From MATLAB, use `launch_lesson("P02")`, or enter this folder and run one section of
+`experiment.m` at a time. Open `interactive.m` after observing the baseline. Run
+`run_checks.m` before attempting the interpretation questions and teach-back.
+
+## Dependency and evidence boundary
+
+P02 compounds on P01's visible state evolution: the mass response contained both
+storage and dissipation, while this module isolates ideal accumulation from one simple
+leak-to-equilibrium mechanism. The implementation uses deterministic base-MATLAB
+calculations. Repository checks validate structure and equations statically; they do
+not claim MATLAB-runtime, UI, numerical-fidelity, bench, HIL, field, or production
+validation.
