@@ -1,34 +1,34 @@
 schema_version: 1
 batch:
-  id: P20
-  title: 'Implement P20: Compare Nominal and Robust Designs'
-  goal: Implement P20 as an interactive MATLAB lesson answering 'What inputs, observable effects, and
-    failure modes matter when you compare Nominal and Robust Designs?' through visible cause and effect.
+  id: P21
+  title: 'Implement P21: Generate a Feasible Trajectory'
+  goal: Implement P21 as an interactive MATLAB lesson answering 'What inputs, observable effects, and
+    failure modes matter when you generate a Feasible Trajectory?' through visible cause and effect.
 sources:
   product: products/controls-gnc-learning/product.yaml
   requirements:
   - products/controls-gnc-learning/PRD.md#cap-module-01--complete-learning-slice
   - products/controls-gnc-learning/acceptance.yaml#CAP-MODULE-01
-  - modules/20-compare-nominal-and-robust-designs/README.md
-  milestone: products/controls-gnc-learning/milestones/CGL-M5.md
+  - modules/21-generate-a-feasible-trajectory/README.md
+  milestone: products/controls-gnc-learning/milestones/CGL-M6.md
   baseline_commit: 58c96aea9f341664d4a7430f0c0e87fce2550484
   control_plane_repository: kpbianco/portfolio-control
-  control_plane_path: products/controls-gnc-learning/batches/P20.yaml
+  control_plane_path: products/controls-gnc-learning/batches/P21.yaml
   control_plane_revision: 7102a963b10d9d1fa2aa8b54b4b38f7ab12cb161  # pragma: allowlist secret
 dependencies:
-- P19
+- P20
 scope:
   allowed_paths:
-  - modules/20-compare-nominal-and-robust-designs/**
+  - modules/21-generate-a-feasible-trajectory/**
   - curriculum/modules.json
   - README.md
   - START_HERE.md
   - modules/README.md
   - bin/learn
   - bin/learn.py
-  - docs/plans/P20-*.md
-  - docs/evidence/P20-*.md
-  - tests/test_p20*.py
+  - docs/plans/P21-*.md
+  - docs/evidence/P21-*.md
+  - tests/test_p21*.py
   - tests/test_curriculum.py
   - tests/test_learn_cli.py
   forbidden_paths:
@@ -43,8 +43,8 @@ scope:
   - docs/TUTOR_PROTOCOL.md
   - Makefile
 acceptance:
-- 'Preserve the guiding question: What inputs, observable effects, and failure modes matter when you compare
-  Nominal and Robust Designs?'
+- 'Preserve the guiding question: What inputs, observable effects, and failure modes matter when you generate
+  a Feasible Trajectory?'
 - The learner flow visibly follows read, baseline, one lever, changed view, and mechanism-first explanation.
 - experiment.m has a deterministic baseline, labeled plots and metrics, two independent sweeps, and one
   deliberately broken case.
@@ -60,10 +60,10 @@ validation:
   - MATLAB_LEARNING_VERIFY_PROFILE=quick python3 -m unittest discover -s tests -v
   - MATLAB_LEARNING_VERIFY_PROFILE=full ./scripts/agent-verify.sh
   focused_tests_to_add:
-  - P20 artifact completeness and manifest identity
-  - P20 deterministic model and limiting-case checks
-  - P20 two-sweep and broken-case regression
-  - P20 placeholder and opaque-black-box regression
+  - P21 artifact completeness and manifest identity
+  - P21 deterministic model and limiting-case checks
+  - P21 two-sweep and broken-case regression
+  - P21 placeholder and opaque-black-box regression
   required_ci:
   - Portfolio Control validation
   - target Quality workflow
@@ -80,10 +80,10 @@ risk:
   - changes exceed allowed paths
   - expected result conflicts with the governing model
 rollback:
-  strategy: Revert P20 implementation changes and restore only its manifest status to scaffolded.
+  strategy: Revert P21 implementation changes and restore only its manifest status to scaffolded.
 evidence:
   output:
-  - docs/evidence/P20-<date>.md
+  - docs/evidence/P21-<date>.md
   - validation commands and exit results
   - figure, control, metric, and unit inventory
   - acceptance map, runtime inventory, and limitations
