@@ -253,12 +253,12 @@
       "phase_title": "State-space control",
       "slug": "build-a-state-observer",
       "folder": "modules/15-build-a-state-observer",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P15",
       "prerequisites": [
         "P14"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 16,
