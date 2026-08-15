@@ -2,7 +2,7 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 4:** State-space control  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
@@ -10,28 +10,50 @@ What inputs, observable effects, and failure modes matter when you test Observab
 
 ## Physical mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+P13 asked whether an input can move every state direction. P14 turns the arrows around: can a
+measurement history distinguish every possible initial state direction?
 
-## Required learning flow
+The concrete system has position and rate states with no commanded input during the observation
+window:
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+```text
+d(position)/dt = rate
+d(rate)/dt     = -damping * rate
+measurement    = sensor_gain * selected_state
+```
 
-## Implementation contract
+A position sensor sees position immediately and reveals rate because rate changes future position.
+The traditional two-state test stacks `O = [C; C*A]`. The experiment also stacks every exact sampled
+output row over a finite window, so the learner can see which initial-state effects reach the sensor.
 
-The completed module owns these files:
+The state coordinates use fixed scales of `1 m` and `1 m/s`. Singular values and condition number are
+therefore useful comparisons inside this lesson, but they remain coordinate-scaled diagnostics. Full
+rank means a noise-free initial state is unique in this model; it does not promise acceptable sensor
+noise, calibration, bias, or observer performance.
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+## Learning flow
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+1. Read the state and measurement equations and predict whether position history reveals rate.
+2. Visualize two candidate initial states, their sensor histories, and baseline observability metrics.
+3. Move only position-sensor sensitivity and observe output separation and noise amplification.
+4. Reset sensitivity, move only observation-window duration, and observe accumulated rate evidence.
+5. Explain both changes from the visible finite-window observation columns.
+6. Measure rate only and recognize the identical-output, hidden-position-offset symptom.
+7. Restore position measurement, run deterministic checks, and give a two-sentence teach-back.
+
+## Run
+
+From MATLAB with the repository as the current folder:
+
+```matlab
+launch_lesson("P14")
+interactive
+run_module_checks("P14")
+```
+
+The implementation uses deterministic base MATLAB arithmetic and no Control System Toolbox
+observability, state-space, simulation, rank, or pseudoinverse helpers. A rank-deficient measurement
+history is marked non-unique with its state estimate reported as N/A; it is not silently assigned a
+zero estimate. Retained repository validation is static plus independent Python reference simulation.
+No MATLAB-runtime, UI, MATLAB numerical-fidelity, bench, HIL, field, or production validation is
+implied.
