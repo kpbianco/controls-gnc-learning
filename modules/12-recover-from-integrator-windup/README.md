@@ -2,7 +2,7 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 3:** Digital and constrained control  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
@@ -10,28 +10,39 @@ What inputs, observable effects, and failure modes matter when you recover from 
 
 ## Physical mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+P11 separated the control effort a feedback law requests from the effort a limited actuator applies.
+A PI controller also remembers error in an integral state. If that state keeps growing while the
+actuator is pinned, it stores effort the plant never received. When the reference reverses, that old
+memory can delay the command reversal and recovery.
 
-## Required learning flow
+P12 compares the same deterministic first-order plant and symmetric actuator limit along two paths:
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+- unprotected PI: `dI/dt = Ki*e`;
+- back-calculation: `dI/dt = Ki*e + Kaw*(uApplied-uRequested)`.
 
-## Implementation contract
+The requested-minus-applied gap is visible rather than hidden in a toolbox block. The correct
+back-calculation sign drains unavailable effort; the deliberately broken sign reinforces it.
 
-The completed module owns these files:
+## Learning flow
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+1. Read the integral-memory model and make one prediction.
+2. Visualize the baseline output, integral state, and applied command.
+3. Move only anti-windup gain and inspect recovery error.
+4. Reset gain, move only high-demand duration, and inspect stored effort.
+5. Explain both changes using the requested-applied command gap from P11.
+6. Reverse the back-calculation sign and identify positive feedback from its symptom.
+7. Run deterministic checks and give a two-sentence teach-back.
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+## Run
+
+From MATLAB with the repository as the current folder:
+
+```matlab
+launch_lesson("P12")
+interactive
+run_module_checks("P12")
+```
+
+The model uses base MATLAB arithmetic and deterministic inputs. Repository validation retained for
+this batch is static plus independent Python reference simulation; no MATLAB-runtime, UI, MATLAB
+numerical-fidelity, bench, HIL, field, or production validation is implied.
