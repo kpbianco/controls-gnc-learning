@@ -221,12 +221,12 @@
       "phase_title": "State-space control",
       "slug": "test-controllability",
       "folder": "modules/13-test-controllability",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P13",
       "prerequisites": [
         "P12"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 14,
