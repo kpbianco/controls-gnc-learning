@@ -1,11 +1,22 @@
 # P09 checks: Discretize a Continuous Controller
 
-The implementation batch must add checks that prove all of the following:
+Run `run_checks.m`, then answer one interpretation question at a time.
 
-- baseline outputs are deterministic and physically or computationally bounded;
-- each of two levers changes the intended observable for the stated reason;
-- the broken case violates a named assumption and produces a recognizable symptom;
-- limiting cases agree with an independent calculation;
-- the learner can answer: “What inputs, observable effects, and failure modes matter when you discretize a Continuous Controller?” without relying on MATLAB syntax.
+1. In `y[k+1] = a*y[k] + (1-a)*u[k]`, what does `a = exp(-Ts)` mean physically?
+2. Which signal is sampled, which command is held, and why is plant output not a staircase?
+3. In the sample-period sweep, what remains fixed and why does the continuous-target gap grow?
+4. In the rule sweep, which error sample enters forward versus backward Euler memory?
+5. What limiting behavior should both rules approach as `Ts` tends toward zero?
+6. Why can a stable continuous PI target produce an unstable discrete realization?
+7. In the broken case, which pole metric exposes failure before the plot is trusted?
+8. Why is reducing sample period a valid recovery while drawing a smooth interpolation is not?
+9. Which retained checks are independent of the presentation plots?
 
-No executable check is claimed until `run_checks.m` exists and the manifest status is `implemented`.
+## Teach-back
+
+In two sentences, answer the guiding question by naming the timing inputs, one
+observable discretization effect, and the coarse-sampling failure plus recovery.
+
+Do not mark personal completion until the executable checks pass and the learner
+gives that teach-back. Static repository checks are not MATLAB-runtime, UI,
+numerical-fidelity, bench, HIL, field, or production evidence.
