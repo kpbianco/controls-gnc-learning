@@ -36,7 +36,7 @@ This repository is the **Controls, State Estimation, Guidance, and Navigation** 
 ## Governed agentic delivery
 
 - Product: `controls-gnc-learning`; delivery profile: `product-data`.
-- Control revision: `b64611ea561b0d815ec9c5e427ac468e83b4b308`; harness version: `2`.
+- Control revision: `7dd40365fb62c8f3fe222a72bdc2ca4d07a0cf1d`; harness version: `2`.
 - Read `contracts/profile-requirements.yaml` and the approved
   `contracts/active-batch.yaml` before implementation.
 - Stay inside active-batch allowed paths and preserve every forbidden path.
