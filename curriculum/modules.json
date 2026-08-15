@@ -317,12 +317,12 @@
       "phase_title": "Optimal and robust control",
       "slug": "measure-sensitivity-to-model-error",
       "folder": "modules/19-measure-sensitivity-to-model-error",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P19",
       "prerequisites": [
         "P18"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 20,
