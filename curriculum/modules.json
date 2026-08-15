@@ -189,12 +189,12 @@
       "phase_title": "Digital and constrained control",
       "slug": "drive-an-actuator-into-saturation",
       "folder": "modules/11-drive-an-actuator-into-saturation",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P11",
       "prerequisites": [
         "P10"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 12,
