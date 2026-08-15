@@ -301,12 +301,12 @@
       "phase_title": "Optimal and robust control",
       "slug": "use-feedforward-and-feedback-together",
       "folder": "modules/18-use-feedforward-and-feedback-together",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P18",
       "prerequisites": [
         "P17"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 19,

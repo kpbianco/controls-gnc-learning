@@ -1,11 +1,19 @@
 # P18 checks: Use Feedforward and Feedback Together
 
-The implementation batch must add checks that prove all of the following:
+Run `run_module_checks("P18")`, then answer one prompt at a time:
 
-- baseline outputs are deterministic and physically or computationally bounded;
-- each of two levers changes the intended observable for the stated reason;
-- the broken case violates a named assumption and produces a recognizable symptom;
-- limiting cases agree with an independent calculation;
-- the learner can answer: “What inputs, observable effects, and failure modes matter when you use Feedforward and Feedback Together?” without relying on MATLAB syntax.
+1. Before the load pulse, why can matched feedforward move the cart with zero feedback correction?
+2. When `alpha=0`, what signal must appear before feedback can recreate the planned input?
+3. Why does `beta=0` leave a position offset after a finite disturbance even though feedforward still
+   follows the nominal plan?
+4. Which plot distinguishes a reversed feedforward convention from an unexpectedly large disturbance?
+5. Why can the total-command squared integral be smaller than the sum of the two component integrals?
 
-No executable check is claimed until `run_checks.m` exists and the manifest status is `implemented`.
+## Teach-back
+
+In exactly two sentences, state what information feedforward uses and what observable feedback uses.
+Then explain how the baseline, one limiting case, and the reversed-sign symptom show why the two paths
+belong together.
+
+The source and independent oracle provide static and simulated evidence only. No MATLAB-runtime,
+rendered-UI, numerical-fidelity, bench, HIL, field, or production validation is claimed.
