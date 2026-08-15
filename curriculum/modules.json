@@ -381,12 +381,12 @@
       "phase_title": "Guidance and HIL",
       "slug": "model-sensor-and-actuator-dynamics",
       "folder": "modules/23-model-sensor-and-actuator-dynamics",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P23",
       "prerequisites": [
         "P22"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 24,
