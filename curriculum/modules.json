@@ -157,12 +157,12 @@
       "phase_title": "Digital and constrained control",
       "slug": "discretize-a-continuous-controller",
       "folder": "modules/09-discretize-a-continuous-controller",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P09",
       "prerequisites": [
         "P08"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 10,
