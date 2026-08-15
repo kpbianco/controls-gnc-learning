@@ -269,12 +269,12 @@
       "phase_title": "State-space control",
       "slug": "fuse-noisy-sensors-with-a-kalman-filter",
       "folder": "modules/16-fuse-noisy-sensors-with-a-kalman-filter",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P16",
       "prerequisites": [
         "P15"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 17,
