@@ -4,7 +4,7 @@
   "title": "Controls, State Estimation, Guidance, and Navigation",
   "purpose": "Learn how physical systems evolve, how feedback changes them, and how controllers behave when sensors, actuators, and timing are imperfect.",
   "module_count": 24,
-  "progression_rule": "Complete modules in order until the first seven are complete; later modules may be selected when their prerequisites are met.",
+  "progression_rule": "Complete modules in order until the first eight are complete; later modules may be selected when their prerequisites are met.",
   "interaction_contract": {
     "environment": "MATLAB",
     "notebook_format": "MATLAB scripts with %% Live Editor cells",
@@ -141,12 +141,12 @@
       "phase_title": "Feedback fundamentals",
       "slug": "reject-a-disturbance-with-feedback",
       "folder": "modules/08-reject-a-disturbance-with-feedback",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P08",
       "prerequisites": [
         "P07"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 9,
