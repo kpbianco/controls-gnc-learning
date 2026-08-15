@@ -1,11 +1,23 @@
 # P10 checks: Expose Delay and Sampling Limits
 
-The implementation batch must add checks that prove all of the following:
+Run `run_checks.m`, then answer one interpretation question at a time.
 
-- baseline outputs are deterministic and physically or computationally bounded;
-- each of two levers changes the intended observable for the stated reason;
-- the broken case violates a named assumption and produces a recognizable symptom;
-- limiting cases agree with an independent calculation;
-- the learner can answer: “What inputs, observable effects, and failure modes matter when you expose Delay and Sampling Limits?” without relying on MATLAB syntax.
+1. In the exact interval equation, what physical motion do `wOld` and `wNew` represent?
+2. Why does the plant keep moving during computation delay?
+3. In the sample-period sweep, what remains fixed and why does target gap increase?
+4. In the delay sweep, what remains fixed and why does stale-command weight increase?
+5. What should happen to the model as `Ts` and `Td` both approach zero?
+6. What do the `Td=0` and `Td=Ts` limiting cases mean physically?
+7. Why can Nyquist ratio above one coexist with an unstable feedback loop?
+8. Which pole metric exposes the broken case before the time plot is trusted?
+9. Why is reducing `Td` a real recovery while smoothing or interpolating samples is not?
+10. Which retained numerical checks are independent of presentation plots?
 
-No executable check is claimed until `run_checks.m` exists and the manifest status is `implemented`.
+## Teach-back
+
+In two sentences, answer the guiding question by distinguishing `Ts` and `Td`, naming
+one visible timing effect, and explaining the combined-limit failure plus recovery.
+
+Do not mark personal completion until the executable checks pass and the learner
+gives that teach-back. Static repository checks are not MATLAB-runtime, UI,
+numerical-fidelity, bench, HIL, field, or production evidence.
