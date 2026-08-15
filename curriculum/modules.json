@@ -333,12 +333,12 @@
       "phase_title": "Optimal and robust control",
       "slug": "compare-nominal-and-robust-designs",
       "folder": "modules/20-compare-nominal-and-robust-designs",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P20",
       "prerequisites": [
         "P19"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 21,
