@@ -365,12 +365,12 @@
       "phase_title": "Guidance and HIL",
       "slug": "implement-proportional-navigation",
       "folder": "modules/22-implement-proportional-navigation",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P22",
       "prerequisites": [
         "P21"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 23,

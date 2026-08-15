@@ -1,34 +1,34 @@
 schema_version: 1
 batch:
-  id: P21
-  title: 'Implement P21: Generate a Feasible Trajectory'
-  goal: Implement P21 as an interactive MATLAB lesson answering 'What inputs, observable effects, and
-    failure modes matter when you generate a Feasible Trajectory?' through visible cause and effect.
+  id: P22
+  title: 'Implement P22: Implement Proportional Navigation'
+  goal: Implement P22 as an interactive MATLAB lesson answering 'What inputs, observable effects, and
+    failure modes matter when you implement Proportional Navigation?' through visible cause and effect.
 sources:
   product: products/controls-gnc-learning/product.yaml
   requirements:
   - products/controls-gnc-learning/PRD.md#cap-module-01--complete-learning-slice
   - products/controls-gnc-learning/acceptance.yaml#CAP-MODULE-01
-  - modules/21-generate-a-feasible-trajectory/README.md
+  - modules/22-implement-proportional-navigation/README.md
   milestone: products/controls-gnc-learning/milestones/CGL-M6.md
   baseline_commit: 58c96aea9f341664d4a7430f0c0e87fce2550484
   control_plane_repository: kpbianco/portfolio-control
-  control_plane_path: products/controls-gnc-learning/batches/P21.yaml
-  control_plane_revision: 7102a963b10d9d1fa2aa8b54b4b38f7ab12cb161  # pragma: allowlist secret
+  control_plane_path: products/controls-gnc-learning/batches/P22.yaml
+  control_plane_revision: 69052d8bd31b6446805739cc9ee514c8714a9827  # pragma: allowlist secret
 dependencies:
-- P20
+- P21
 scope:
   allowed_paths:
-  - modules/21-generate-a-feasible-trajectory/**
+  - modules/22-implement-proportional-navigation/**
   - curriculum/modules.json
   - README.md
   - START_HERE.md
   - modules/README.md
   - bin/learn
   - bin/learn.py
-  - docs/plans/P21-*.md
-  - docs/evidence/P21-*.md
-  - tests/test_p21*.py
+  - docs/plans/P22-*.md
+  - docs/evidence/P22-*.md
+  - tests/test_p22*.py
   - tests/test_curriculum.py
   - tests/test_learn_cli.py
   forbidden_paths:
@@ -43,8 +43,8 @@ scope:
   - docs/TUTOR_PROTOCOL.md
   - Makefile
 acceptance:
-- 'Preserve the guiding question: What inputs, observable effects, and failure modes matter when you generate
-  a Feasible Trajectory?'
+- 'Preserve the guiding question: What inputs, observable effects, and failure modes matter when you implement
+  Proportional Navigation?'
 - The learner flow visibly follows read, baseline, one lever, changed view, and mechanism-first explanation.
 - experiment.m has a deterministic baseline, labeled plots and metrics, two independent sweeps, and one
   deliberately broken case.
@@ -60,10 +60,10 @@ validation:
   - MATLAB_LEARNING_VERIFY_PROFILE=quick python3 -m unittest discover -s tests -v
   - MATLAB_LEARNING_VERIFY_PROFILE=full ./scripts/agent-verify.sh
   focused_tests_to_add:
-  - P21 artifact completeness and manifest identity
-  - P21 deterministic model and limiting-case checks
-  - P21 two-sweep and broken-case regression
-  - P21 placeholder and opaque-black-box regression
+  - P22 artifact completeness and manifest identity
+  - P22 deterministic model and limiting-case checks
+  - P22 two-sweep and broken-case regression
+  - P22 placeholder and opaque-black-box regression
   required_ci:
   - Portfolio Control validation
   - target Quality workflow
@@ -80,10 +80,10 @@ risk:
   - changes exceed allowed paths
   - expected result conflicts with the governing model
 rollback:
-  strategy: Revert P21 implementation changes and restore only its manifest status to scaffolded.
+  strategy: Revert P22 implementation changes and restore only its manifest status to scaffolded.
 evidence:
   output:
-  - docs/evidence/P21-<date>.md
+  - docs/evidence/P22-<date>.md
   - validation commands and exit results
   - figure, control, metric, and unit inventory
   - acceptance map, runtime inventory, and limitations
