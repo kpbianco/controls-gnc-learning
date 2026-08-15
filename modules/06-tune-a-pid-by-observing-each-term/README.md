@@ -2,7 +2,7 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 2:** Feedback fundamentals  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
@@ -10,9 +10,22 @@ What inputs, observable effects, and failure modes matter when you tune a PID by
 
 ## Physical mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+A PID controller pushes a damped 1 kg carriage toward a `1 m` reference while a
+constant `-1 N` load pulls back. The controller force is shown as three visible
+parts:
 
-## Required learning flow
+- `P = Kp*e` reacts to the error that exists now;
+- `I = Ki*integral(e dt)` remembers error and supplies the steady holding force;
+- `D = -Kd*v` opposes measured velocity and adds damping without differentiating a
+  reference step.
+
+The transparent plant is `m*x'' = P + I + D + Fload - b*x'`. No Control System
+Toolbox or opaque solver is used: `model.m` advances these states with explicit,
+fixed-step fourth-order Runge-Kutta calculations.
+The requested calculation interval controls numerical resolution and plotted
+samples; it is not a sampled PID implementation, which belongs to P09.
+
+## Learning flow
 
 1. Establish a deterministic baseline.
 2. Show at least two complementary plots or views.
@@ -22,7 +35,7 @@ Start from a concrete system, measurement, or decision. Change one parameter at 
 6. Ask one observation question at a time.
 7. Finish with a teach-back and a deterministic check.
 
-## Implementation contract
+## Artifact map
 
 The completed module owns these files:
 
@@ -34,4 +47,7 @@ The completed module owns these files:
 - `walkthrough.md` — expected observations in order.
 - `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+Start with `lesson.m`, run `experiment.m` one section at a time, and then use
+`interactive.m` to move `Ki` and `Kd` independently. The broken case reverses the
+derivative sign so velocity is reinforced instead of opposed; recovery restores
+derivative damping before any retuning.

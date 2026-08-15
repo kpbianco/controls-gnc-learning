@@ -109,12 +109,12 @@
       "phase_title": "Feedback fundamentals",
       "slug": "tune-a-pid-by-observing-each-term",
       "folder": "modules/06-tune-a-pid-by-observing-each-term",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P06",
       "prerequisites": [
         "P05"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 7,
