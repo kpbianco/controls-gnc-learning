@@ -285,12 +285,12 @@
       "phase_title": "Optimal and robust control",
       "slug": "balance-state-error-and-control-effort-with-lqr",
       "folder": "modules/17-balance-state-error-and-control-effort-with-lqr",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P17",
       "prerequisites": [
         "P16"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 18,
