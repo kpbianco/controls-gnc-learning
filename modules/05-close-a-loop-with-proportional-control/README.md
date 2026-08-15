@@ -1,37 +1,45 @@
 # P05 — Close a Loop with Proportional Control
 
-**Track:** Controls, State Estimation, Guidance, and Navigation  
-**Phase 2:** Feedback fundamentals  
-**Status:** scaffolded
+**Track:** Controls, State Estimation, Guidance, and Navigation
+**Phase 2:** Feedback fundamentals
+**Status:** implemented
 
 ## Guiding question
 
 What inputs, observable effects, and failure modes matter when you close a Loop with Proportional Control?
 
-## Physical mental model
+## Mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+A first-order plant turns command `u` into measured output `y`:
 
-## Required learning flow
+```text
+tau*y' = -y + G*u
+u = Kp*(r - y).
+```
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+The proportional controller reacts to the present tracking error `e = r - y`.
+Closing the loop moves the pole from `-1/tau` to `-(1 + G*Kp)/tau`, so larger
+`Kp` makes the response faster. The same equations also reveal the tradeoff:
+finite proportional gain needs a nonzero steady error to hold a nonzero command.
 
-## Implementation contract
+## What to run
 
-The completed module owns these files:
+1. Open `lesson.m` for the P04 bridge and one baseline prediction.
+2. Run `experiment.m` one `%%` section at a time: baseline output, error and
+   effort, proportional-gain sweep, plant-time-constant sweep, then reversed-sign
+   broken and recovered cases.
+3. Run `interactive.m`; move proportional gain once, reset, then move plant time
+   constant once.
+4. Run `run_checks.m`, answer `checks.md`, and give the teach-back.
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+The model uses an explicit closed-loop equation and exact propagation over each
+requested interval. It uses base MATLAB and no Control System Toolbox, Simulink,
+transfer-function object, or opaque solver.
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+## Evidence boundary
+
+The model is deterministic simulation content. Repository tests statically validate
+artifacts, equations, independent reference arithmetic, malformed-input contracts,
+and resource bounds. MATLAB runtime, rendered figures, UI callbacks, MATLAB
+numerical fidelity, educational efficacy, bench, hardware, HIL, field, and
+production behavior require separate retained evidence.

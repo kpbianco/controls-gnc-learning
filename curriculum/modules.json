@@ -93,12 +93,12 @@
       "phase_title": "Feedback fundamentals",
       "slug": "close-a-loop-with-proportional-control",
       "folder": "modules/05-close-a-loop-with-proportional-control",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P05",
       "prerequisites": [
         "P04"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 6,
