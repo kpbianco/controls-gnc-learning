@@ -1,11 +1,19 @@
 # P21 checks: Generate a Feasible Trajectory
 
-The implementation batch must add checks that prove all of the following:
+Run `run_module_checks("P21")`, then answer one prompt at a time:
 
-- baseline outputs are deterministic and physically or computationally bounded;
-- each of two levers changes the intended observable for the stated reason;
-- the broken case violates a named assumption and produces a recognizable symptom;
-- limiting cases agree with an independent calculation;
-- the learner can answer: “What inputs, observable effects, and failure modes matter when you generate a Feasible Trajectory?” without relying on MATLAB syntax.
+1. Why can a trajectory meet its endpoint position, speed, and acceleration conditions yet still be infeasible?
+2. Why does doubling duration divide peak speed by two, peak acceleration by four, and peak jerk by eight?
+3. Why must feasibility use analytic peaks rather than only the largest value on a plot grid?
+4. What do target position, duration, speed limit, and acceleration limit each change, and which changes the
+   polynomial path rather than only its verdict?
+5. What additional plant, obstacle, actuator, and feedback evidence would be needed before calling the move
+   trackable or safe?
 
-No executable check is claimed until `run_checks.m` exists and the manifest status is `implemented`.
+## Teach-back
+
+In exactly two sentences, name the trajectory inputs and the observable time-scaling effects. Then state the
+speed/acceleration feasibility rule and explain why the smooth `4 s` request fails.
+
+The source and independent oracle provide static and simulated evidence only. No MATLAB-runtime,
+rendered-UI, numerical-fidelity, plant-tracking, bench, HIL, field, or production validation is claimed.
