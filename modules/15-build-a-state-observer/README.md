@@ -2,7 +2,7 @@
 
 **Track:** Controls, State Estimation, Guidance, and Navigation  
 **Phase 4:** State-space control  
-**Status:** scaffolded
+**Status:** implemented
 
 ## Guiding question
 
@@ -10,28 +10,63 @@ What inputs, observable effects, and failure modes matter when you build a State
 
 ## Physical mental model
 
-Start from a concrete system, measurement, or decision. Change one parameter at a time and connect every visible change to a physical or computational cause.
+P14 established that a history of cart-position measurements reveals both position and rate. P15
+uses that visibility in real time. A model predicts the next state from the known acceleration
+command; the position sensor checks the prediction; and the innovation, `y - C*xhat`, corrects both
+estimated position and estimated rate:
 
-## Required learning flow
+```text
+x[k+1]    = Ad*x[k]    + Bd*u[k]
+xhat[k+1] = Ad*xhat[k] + Bd*u[k] + L*(y[k] - C*xhat[k])
+```
 
-1. Establish a deterministic baseline.
-2. Show at least two complementary plots or views.
-3. Expose meaningful parameters as MATLAB controls or clearly editable Live Editor variables.
-4. Sweep two parameters independently.
-5. Include one deliberately broken or misleading case.
-6. Ask one observation question at a time.
-7. Finish with a teach-back and a deterministic check.
+The exact sampled plant is the P14 cart:
 
-## Implementation contract
+```text
+d(position)/dt = rate
+d(rate)/dt     = -0.5*rate + acceleration command
+measurement    = position
+```
 
-The completed module owns these files:
+The observer uses the same exact zero-order-hold `Ad` and `Bd`. Its repeated error pole is requested
+as `q = exp(-observerPoleSpeed*dt)`, and the two entries of `L` are derived explicitly from the trace
+and determinant of `Ad - L*C`. No pole-placement, state-space, simulation, or eigenvalue toolbox
+helper hides that operation.
 
-- `lesson.m` — notebook-style MATLAB sections (`%%`) and concise narrative.
-- `interactive.m` — `uifigure` controls, plots, and immediate feedback.
-- `model.m` — deterministic calculations separated from presentation.
-- `experiment.m` — reproducible baseline, sweeps, and broken case.
-- `lesson.md` — tutor-facing explanation and misconceptions.
-- `walkthrough.md` — expected observations in order.
-- `checks.md` and `run_checks.m` — conceptual and numerical completion checks.
+## Learning flow
 
-Prefer base MATLAB. Optional toolbox comparisons may be added only after the underlying operation is visible.
+1. Read the plant, prediction, measurement, innovation, and correction equations.
+2. Visualize a deterministic noise-free baseline from a deliberately wrong initial estimate.
+3. Move only observer pole speed and compare final error with required correction gain.
+4. Reset speed, move only deterministic measurement-interference amplitude, and observe estimate ripple.
+5. Explain both effects from the visible error recurrence.
+6. Add a `+0.15 m` sensor bias and see innovation become quiet while position remains wrong.
+7. Restore calibration, run deterministic checks, and give a two-sentence teach-back.
+
+## Run
+
+From MATLAB with the repository as the current folder:
+
+```matlab
+launch_lesson("P15")
+moduleFolder = fullfile(pwd,"modules","15-build-a-state-observer");
+addpath(moduleFolder,"-begin");
+try
+    interactive
+catch exception
+    rmpath(moduleFolder);
+    rethrow(exception)
+end
+rmpath(moduleFolder);
+clear moduleFolder
+run_module_checks("P15")
+```
+
+`launch_lesson` removes its temporary module path when the lesson returns. Add the folder only while
+opening the interactive view, as shown. Both the normal and error paths remove it so the generic
+module-local function names do not shadow a different module later in the MATLAB session.
+
+The module uses deterministic base MATLAB arithmetic. The sinusoidal measurement interference is a
+repeatable teaching input, not stochastic sensor evidence; Kalman filtering belongs to P16. Retained
+repository evidence is static plus independent Python reference simulation. No MATLAB-runtime, UI,
+MATLAB numerical-fidelity, bench, HIL, field, or production validation is implied.
