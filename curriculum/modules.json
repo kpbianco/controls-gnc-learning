@@ -173,12 +173,12 @@
       "phase_title": "Digital and constrained control",
       "slug": "expose-delay-and-sampling-limits",
       "folder": "modules/10-expose-delay-and-sampling-limits",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P10",
       "prerequisites": [
         "P09"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 11,
