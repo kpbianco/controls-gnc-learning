@@ -205,12 +205,12 @@
       "phase_title": "Digital and constrained control",
       "slug": "recover-from-integrator-windup",
       "folder": "modules/12-recover-from-integrator-windup",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P12",
       "prerequisites": [
         "P11"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     },
     {
       "number": 13,
