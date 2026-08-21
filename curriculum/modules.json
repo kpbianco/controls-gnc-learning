@@ -397,12 +397,12 @@
       "phase_title": "Guidance and HIL",
       "slug": "close-the-loop-through-a-hardware-in-the-loop-plant",
       "folder": "modules/24-close-the-loop-through-a-hardware-in-the-loop-plant",
-      "status": "scaffolded",
+      "status": "implemented",
       "implementation_batch": "P24",
       "prerequisites": [
         "P23"
       ],
-      "evidence_level": "none"
+      "evidence_level": "simulated"
     }
   ]
 }
